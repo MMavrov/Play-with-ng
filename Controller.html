@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Counter app</title>
+  </head>
+  <body>
+    <div ng-app="MyModule">
+      <div ng-controller="MyController">
+        <h4>The simplest adding machine ever</h4>
+        <button ng-click="counter.add(1)" class="button">Add</button>
+        <button ng-click="counter.add(-1)" class="button">Subtract</button>
+        <h4>Current count: {{ counter.count }}</h4>
+        <h5>The counter object: {{ counter }}</h5>
+      </div>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+  <script src="Controller.js"></script>
+</html>
