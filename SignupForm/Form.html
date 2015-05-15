@@ -20,9 +20,9 @@
                             ng-minlength=3
                             ng-maxlength=20
                             required
-                            ng-focus />
+                            ng-focus/>
                         <div class="error"
-                            ng-show="signupForm.name.$dirty && signupForm.name.$invalid">
+                            ng-show="signupForm.name.$dirty && signupForm.name.$invalid && !signupForm.name.$focused">
                             <small class="error"
                                 ng-show="signupForm.name.$error.required">
                                 Your name is required!
@@ -44,9 +44,10 @@
                             ng-model="signup.email"
                             ng-minlength=3
                             ng-maxlength=20
-                            required />
+                            required
+                            ng-focus />
                         <div class="error"
-                            ng-show="signupForm.email.$dirty && signupForm.email.$invalid">
+                            ng-show="signupForm.email.$dirty && signupForm.email.$invalid && !signupForm.email.$focused">
                             <small class="error"
                                 ng-show="signupForm.email.$error.required">
                                 Your email is required! 
@@ -73,9 +74,10 @@
                             ng-minlength=3
                             ng-maxlength=20
                             ensure-unique="username"
-                            required />
+                            required
+                            ng-focus />
                         <div class="error"
-                            ng-show="signupForm.username.$dirty && signupForm.username.$invalid">
+                            ng-show="signupForm.username.$dirty && signupForm.username.$invalid && !signupForm.username.$focused">
                             <small class="error"
                                 ng-show="signupForm.username.$error.required">
                                 Please input a username! 

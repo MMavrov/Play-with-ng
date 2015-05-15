@@ -1,7 +1,7 @@
 angular
 .module('myApp', [])
 
-.directive('ngFocus', [function() {
+.directive('ngFocus', function() {
   var FOCUS_CLASS = "ng-focused";
   return {
     restrict: 'A',
@@ -17,15 +17,15 @@ angular
       });
     }
   }
-}])
+})
 
 .controller('signupController', ['$scope', function($scope) {
   $scope.submitted = false;
   $scope.signupForm = function() {
-    if ($scope.signup_form.$valid) {
+    if ($scope.signupForm.$valid) {
       // Submit as normal
     } else {
-      $scope.signup_form.submitted = true;
+      $scope.signupForm.submitted = true;
     }
   }
 }]);
