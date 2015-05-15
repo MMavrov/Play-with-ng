@@ -22,10 +22,10 @@ angular
 .controller('signupController', ['$scope', function($scope) {
   $scope.submitted = false;
   $scope.signupForm = function() {
-    if ($scope.signupForm.$valid) {
+    if ($scope.signup_form.$valid) {
       // Submit as normal
     } else {
-      $scope.signupForm.submitted = true;
+      $scope.signup_form.submitted = true;
     }
   }
 }]);
