@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Filters</title>
+    </head>
+    <body ng-app='myApp'>
+      <div ng-controller="MyController">
+        <h3>A {{car.brand}}'s price is: {{ car.price | currency}}</h3>
+        <h3>Original: {{ persons }}</h3>
+        <h3>Filtered by favourite food=Pizza: {{ persons | filter:{'favorite food': 'Pizza'} }}</h3>
+        <h3>Ordered by name: {{ persons | orderBy:'name' }}</h3>
+        <h3>{{ "San Francisco is very cloudy" | lowercase | capitalize }}</h3>
+      </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+    <script src="Filters.js"></script>
+</html>
