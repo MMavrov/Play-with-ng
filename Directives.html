@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Directives</title>
-  </head>
+</head>
 
-  <body ng-app='myApp'>
-    <div my-directive
-      my-url="http://google.com"
-      my-link-text="Click me, and the world is yours!"></div>
-  </body>
+<body ng-app='myApp'>
+<input type="text" ng-model="theirUrl" />
+<div my-directive
+     my-url="theirUrl"
+     my-link-text="Click me"></div>
+</body>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
-  <script src="Directives.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.6/angular.js"></script>
+<script src="Directives.js"></script>
 </html>
