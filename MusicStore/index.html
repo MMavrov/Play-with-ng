@@ -7,17 +7,50 @@
     <script type="text/javascript" src="app.js"></script>
 </head>
 <body ng-app="musicStore" ng-controller="StoreController as store">
-<div class="container">
-    <h3>Our instruments</h3>
-    <ul class="list-group">
-        <li class="list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
-            {{product.name}}
-            <span class="badge pull-left">{{product.price | currency}}</span>
-            <button class="btn btn-success pull-right" ng-show="product.canPurchase">
-                <span class="glyphicon glyphicon-plus-sign"></span> Add to Cart
-            </button>
-        </li>
-    </ul>
-</div>
+    <header>
+        <h1 class="text-center">Our instruments</h1>
+    </header>
+
+    <div class="list-group" >
+    <div class="list-group-item" ng-hide="product.soldOut" ng-repeat="product in store.products">
+        <h3>{{product.name}}</h3>
+        <span class="badge pull-left">{{product.price | currency}}</span>
+
+        <button class="btn btn-success pull-right" ng-show="product.canPurchase">
+            <span class="glyphicon glyphicon-plus-sign"></span> Add to Cart
+        </button>
+
+        <div class="img-wrap">
+            <img ng-src="{{product.image}}" />
+        </div>
+
+        <section class="tab" ng-controller="TabController as tabController">
+            <ul class="nav nav-pills">
+                <li ng-class="{ active: tabController.isSelected(1) }">
+                    <a href ng-click="tabController.setTab(1)">Description</a></li>
+                <li ng-class="{ active: tabController.isSelected(2) }">
+                    <a href ng-click="tabController.setTab(2)">Specs</a></li>
+                <li ng-class="{ active: tabController.isSelected(3) }">
+                    <a href ng-click="tabController.setTab(3)">Reviews</a></li>
+            </ul>
+            <div ng-show="tabController.isSelected(1)">
+                <h4>Description</h4>
+                <blockquote>{{product.description}}</blockquote>
+            </div>
+            <div ng-show="tabController.isSelected(2)">
+                <h4>Specs</h4>
+                <blockquote>
+                    Good for:
+                    <div ng-repeat="style in product.styles">{{style}}</div>
+                </blockquote>
+            </div>
+            <div ng-show="tabController.isSelected(3)">
+                <h4>Reviews</h4>
+                <blockquote></blockquote>
+            </div>
+        </section>
+
+    </div>
+    </div>
 </body>
 </html>
