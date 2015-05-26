@@ -24,7 +24,7 @@
         {
             name: 'Guitar',
             price: 2200.99,
-            canPurchase: true,
+            canPurchase: false,
             soldOut: false,
             description: 'Fender',
             styles: ['metal', 'jazz'],
@@ -33,7 +33,7 @@
         {
             name: 'Drums',
             price: 1200.95,
-            canPurchase: false,
+            canPurchase: true,
             soldOut: false,
             description: 'TAMA',
             styles: ['country', 'metal'],
