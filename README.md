@@ -7,3 +7,4 @@ My first steps using AngularJS
 * **What is Directive?** - A marker on HTML tag that tells Angular to run or reference some JavaScript code.
 * **What is Module?** - Container for the different parts of our app – controllers, services, filters, directives, etc.
 * **What is Expressions?** - How we insert dynamic values into our HTML.
+* **What is Controller?** - Where we get the data to the page and define our app`s behavior by defining functions and values.
