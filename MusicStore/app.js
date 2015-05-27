@@ -13,20 +13,23 @@
         vm.tab = 1;
 
         vm.setTab = function(tab){
-            this.tab = tab;
+            vm.tab = tab;
         };
         vm.isSelected = function(tab){
-            return this.tab === tab;
+            return vm.tab === tab;
         };
     });
 
     app.controller('ReviewController', function() {
-        this.review = {};
+        var vm = this;
 
-        this.addReview = function(product) {
-            product.reviews.push(this.review);
+        vm.review = {};
 
-            this.review = {};
+        vm.addReview = function(product) {
+
+            product.reviews.push(vm.review);
+
+            vm.review = {};
         };
     });
 
