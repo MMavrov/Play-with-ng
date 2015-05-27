@@ -26,6 +26,7 @@
         vm.review = {};
 
         vm.addReview = function(product) {
+            vm.review.createdOn = Date.now();
 
             product.reviews.push(vm.review);
 
