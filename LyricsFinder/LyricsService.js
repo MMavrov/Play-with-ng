@@ -11,12 +11,12 @@
                     body: 'dummy'
                 }
 
-                $http.get('http://api.musixmatch.com/ws/1.1/')
+                $http.jsonp('http://api.musixmatch.com/ws/1.1/artist.get?artist_id=118') // add &apikey='your_api_key'
                     .success(function (data){
                         response.body = data;
                     })
-                    .error(function (data, status) {
-                        response.body =data;
+                    .error(function (data) {
+                        response.body = data;
                     });
 
                 return response;
