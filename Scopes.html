@@ -1,0 +1,50 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular.js"></script>
+</head>
+<body>
+    <div ng-init="siblingProperty = 'sibling property'"></div>
+
+    <div ng-init="parentProperty = 'parent property'">
+        <p>withoutScopeProperty: {{ withoutScopeProperty }}</p>
+        <p>withScopeProperty: {{ withScopeProperty }}</p>
+        <p>withIsolateScopeProperty: {{ withIsolateScopeProperty }}</p>
+
+        <div without-scope ng-init="withoutScopeProperty = 'without scope property'">
+            <h3>IN without-scope DIRECTIVE</h3>
+            <!-- The properties, initialized in this directive are visible outside it -->
+
+            <!-- The properties, initialized in the parent's scope are visible here -->
+            <p>parentProperty: {{ parentProperty }}</p>
+
+            <!-- The properties, initialized in the parent's sibling scope are visible here -->
+            <p>siblingProperty: {{ siblingProperty }}</p>
+        </div>
+
+        <div with-scope ng-init="withScopeProperty = 'with scope property'">
+            <h3>IN with-scope DIRECTIVE</h3>
+            <!-- The properties, initialized in this directive are NOT visible outside it -->
+
+            <!-- The properties, initialized in the parent's scope are visible here -->
+            <p>parentProperty: {{ parentProperty }}</p>
+
+            <!-- The properties, initialized in the parent's sibling scope are visible here -->
+            <p>siblingProperty: {{ siblingProperty }}</p>
+        </div>
+
+        <div with-isolate-scope ng-init="withIsolateScopeProperty = 'with isolate scope property'">
+            <h3>IN with-isolate-scope DIRECTIVE</h3>
+            <!-- The properties, initialized in this directive are NOT visible outside it -->
+
+            <!-- The properties, initialized in the parent's scope are NOT visible here -->
+            <p>parentProperty: {{ parentProperty }}</p>
+
+            <!-- The properties, initialized in the parent's sibling scope are NOT visible here -->
+            <p>siblingProperty: {{ siblingProperty }}</p>
+        </div>
+    </div>
+
+    <script src="Scopes.js"></script>
+</body>
+</html>
