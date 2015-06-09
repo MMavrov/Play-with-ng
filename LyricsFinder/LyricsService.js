@@ -1,25 +1,29 @@
 (function () {
     angular
         .module('app.service', [])
-        .service('LyricsService', function ($http) {
+        .service('LyricsService', function ($q, $http) {
             var that = this;
 
             that.getLyricsOf = getLyricsOf;
 
             function getLyricsOf() {
-                var response = {
-                    body: 'dummy'
-                }
+                var deferred = $q.defer();
 
-                $http.jsonp('http://api.musixmatch.com/ws/1.1/artist.get?artist_id=118') // add &apikey='your_api_key'
-                    .success(function (data){
-                        response.body = data;
-                    })
-                    .error(function (data) {
-                        response.body = data;
-                    });
+                $http.get('https://musixmatchcom-musixmatch.p.mashape.com/wsr/1.1/track.lyrics.get', {
+                    params: {
+                        'track_id': '15449912'
+                    },
+                    headers: {
+                        'X-Mashape-Key': 'uZyAnIbTjSmshqIhYaDsWZG2KNJzp1QX8onjsnhWVxqDv60PhW',
+                        'Accept': 'application/json;charset=UTF-8'
+                    }
+                }).success(function (data, status, headers, config){
+                    deferred.resolve(data);
+                }).error(function (data, status, headers, config){
+                    deferred.reject(data);
+                });
 
-                return response;
+                return deferred.promise;
             }
         });
 })();

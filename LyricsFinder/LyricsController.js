@@ -5,8 +5,11 @@
         .controller('LyricsController', function (LyricsService) {
             var vm = this;
 
-            vm.obj = {};
-
-            vm.obj = LyricsService.getLyricsOf();
+            LyricsService.getLyricsOf().then(function (data) {
+                vm.obj = data;
+            },
+                function (data) {
+                    vm.obj = data;
+                });
         });
 })();
